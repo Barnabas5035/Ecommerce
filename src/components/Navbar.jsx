@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useGlobalContext } from './cart_products'
+import Products from './Products'
 const Navbar = () => {
   const { price, cart } = useGlobalContext()
 
@@ -49,7 +50,10 @@ const Navbar = () => {
                 <i className='fa fa-user-plus me-1'></i>
                 Register
               </Link>
-              <Link to='/cart' className='btn btn-outline-dark ms-2'>
+              <Link
+                to={`/Products/${Products.id}`}
+                className='btn btn-outline-dark ms-2'
+              >
                 <i className='fa fa-shopping-cart me-1'>{cart.length}</i>
               </Link>
             </div>
