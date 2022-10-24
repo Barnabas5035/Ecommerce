@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { useGlobalContext } from './cart_products'
 import Products from './Products'
 const Navbar = () => {
-  const { price, cart } = useGlobalContext()
+  const {  cart } = useGlobalContext()
 
   return (
     <div>
