@@ -6,7 +6,7 @@ import { Routes, Route } from 'react-router-dom'
 import Products from './components/Products'
 import Product from './components/Product'
 import About from './components/About'
-import Footer from './components/Footer'
+
 
 const App = () => {
   return (
