@@ -38,7 +38,7 @@ const Products = () => {
                           ${product.price}
                         </p>
                         <Link
-                          to={`/Products/${Products.id}`}
+                          to={`/Products/${Product.id}`}
                           className='btn btn-primary'
                         >
                           Buy Now
