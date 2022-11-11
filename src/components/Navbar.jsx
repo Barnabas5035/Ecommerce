@@ -8,7 +8,7 @@ const Navbar = () => {
     <div>
       <nav className='navbar navbar-expand-lg navbar-light bg-info py-3'>
         <div className='container-fluid'>
-          <a className='navbar-brand fw-bold fs-4' ahref to='/'>
+          <a className='navbar-brand fw-bold fs-4' ahref ='#'>
             LA COLLECTION
           </a>
           <button
