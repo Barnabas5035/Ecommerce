@@ -1,8 +1,9 @@
 import React from 'react'
 import { FaMinus, FaPlus } from 'react-icons/fa'
+import { FiDelete } from 'react-icons/fi'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
-import { clearCart } from '../redux/action'
+import { clearCart, delCart } from '../redux/action'
 import { AddCart } from '../redux/action'
 import { Link } from 'react-router-dom'
 
@@ -11,10 +12,13 @@ const Cart = () => {
   const dispatch = useDispatch()
 
   const delProduct = (product) => {
-    dispatch(clearCart(product))
+    dispatch(delCart(product))
   }
   const addProduct = (product) => {
     dispatch(AddCart(product))
+  }
+  const removeCart = (product) => {
+    dispatch(clearCart(product))
   }
   const product = (product) => {
     return (
@@ -46,6 +50,12 @@ const Cart = () => {
                 onClick={() => addProduct(product)}
               >
                 <FaPlus />
+              </button>
+              <button
+                className='btn btn-outline-dark me-4'
+                onClick={() => removeCart(product)}
+              >
+                <FiDelete />
               </button>
             </div>
           </div>
