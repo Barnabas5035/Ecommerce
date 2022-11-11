@@ -8,9 +8,9 @@ const Navbar = () => {
     <div>
       <nav className='navbar navbar-expand-lg navbar-light bg-info py-3'>
         <div className='container-fluid'>
-          <a className='navbar-brand fw-bold fs-4' href ='#'>
+          <Link className='navbar-brand fw-bold fs-4' to='/'>
             LA COLLECTION
-          </a>
+          </Link>
           <button
             className='navbar-toggler'
             type='button'
@@ -62,3 +62,4 @@ const Navbar = () => {
 }
 
 export default Navbar
+
