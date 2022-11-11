@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
-import Products from './Products'
 const Navbar = () => {
   const state = useSelector((state) => state.handleCart)
   return (
