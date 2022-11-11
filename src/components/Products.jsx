@@ -1,11 +1,33 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { useGlobalContext } from './cart_products'
+
 import Footer from './Footer'
 
 const Products = () => {
-  const { cart } = useGlobalContext()
+  const [data, setData] = useState([])
+  const [filter, setfilter] = useState(data)
+  const [loading, setLoading] = useState(false)
+  let componentMounted = true
 
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true)
+      const response = await fetch('https://fakestoreapi.com/products')
+      if (componentMounted) {
+        setData(await response.clone().json())
+        setfilter(await response.json())
+        setLoading(false)
+        console.log(filter)
+      }
+      return () => {
+        componentMounted = false
+      }
+    }
+    fetchData()
+  }, [])
+  if (loading) {
+    return <>loading....</>
+  }
   return (
     <div>
       <div className='container my-5 py-5'>
@@ -17,7 +39,7 @@ const Products = () => {
             </div>
           </div>
           <div className='row d-flex justify-content-center mb-5 pb-5'>
-            {cart.map((product) => {
+            {filter.map((product) => {
               return (
                 <>
                   <div className='col-md-3 mb-4'>
@@ -38,7 +60,7 @@ const Products = () => {
                           ${product.price}
                         </p>
                         <Link
-                          to={`/Products/${Product.id}`}
+                          to={`/Products/${product.id}`}
                           className='btn btn-primary'
                         >
                           Buy Now

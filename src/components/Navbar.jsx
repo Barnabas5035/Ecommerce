@@ -1,15 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { useGlobalContext } from './cart_products'
+import { useSelector } from 'react-redux'
+
 import Products from './Products'
 const Navbar = () => {
-  const {  cart } = useGlobalContext()
-
+  const state = useSelector((state) => state.handleCart)
   return (
     <div>
-      <nav className='navbar navbar-expand-lg bg-info shadow-sm py-3'>
-        <div className='container'>
-          <a className='navbar-brand fw-bold fs-4' href='#'>
+      <nav className='navbar navbar-expand-lg navbar-light bg-info py-3'>
+        <div className='container-fluid'>
+          <a className='navbar-brand fw-bold fs-4' Link to='/'>
             LA COLLECTION
           </a>
           <button
@@ -50,11 +50,9 @@ const Navbar = () => {
                 <i className='fa fa-user-plus me-1'></i>
                 Register
               </Link>
-              <Link
-                to={`/Products/${Products.id}`}
-                className='btn btn-outline-dark ms-2'
-              >
-                <i className='fa fa-shopping-cart me-1'>{cart.length}</i>
+              <Link to='Cart' className='btn btn-outline-dark ms-2'>
+                <i className='fa fa-shopping-cart me-1'></i>
+                cart({state.length})
               </Link>
             </div>
           </div>
