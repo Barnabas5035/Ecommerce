@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { FaStar } from 'react-icons/fa'
 import { Link, useParams } from 'react-router-dom'
 import Footer from './Footer'
 import { useState } from 'react'
