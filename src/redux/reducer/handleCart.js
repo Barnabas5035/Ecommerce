@@ -18,12 +18,12 @@ const handleCart = (state = cart, action) => {
       break
     case 'DELITEM':
       const exist1 = state.find((x) => x.id === product.id)
-      if (exist.quanlity === 1) {
-        return state.filter((x) => x.id !== exist1.id)
-      } else {
+      if (exist1) {
         return state.map((x) =>
           x.id === product.id ? { ...x, quanlity: x.quanlity - 1 } : x
         )
+      } else {
+        return state
       }
       break
 
@@ -37,3 +37,4 @@ const handleCart = (state = cart, action) => {
   }
 }
 export default handleCart
+
