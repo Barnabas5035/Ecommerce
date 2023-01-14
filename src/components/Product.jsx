@@ -16,7 +16,7 @@ const Product = () => {
     dispatch(AddCart(product))
   }
 
-  useEffect((id) => {
+  useEffect(() => {
     const fetchSinleData = async () => {
       setLoading(true)
       const response = await fetch(`https://fakestoreapi.com/products/${id}`)
@@ -24,7 +24,7 @@ const Product = () => {
       setLoading(false)
     }
     fetchSinleData()
-  }, [id])
+  }, [])
 
   if (loading) {
     return <>loading...</>
