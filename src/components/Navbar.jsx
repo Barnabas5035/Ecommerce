@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 const Navbar = () => {
   const state = useSelector((state) => state.handleCart)
   return (
-    <div>
+    <div className="sticky-top">
       <nav className='navbar navbar-expand-lg navbar-light bg-info py-3'>
         <div className='container-fluid'>
           <Link className='navbar-brand fw-bold fs-4' to='/'>
